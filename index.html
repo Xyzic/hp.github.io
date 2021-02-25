@@ -1,12 +1,13 @@
 <html>
   <head>
     <title> This is my first attempt at an io webiste. </title>
-<script> https://cdn.jsdelivr.net/npm/vega@5 </script>
-<script> https://cdn.jsdelivr.net/npm/vega-lite@4 </script>
-<script> https://cdn.jsdelivr.net/npm/vega-embed@6 </script>
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"> </script>
   </head>
   <body> This is the first visualization for A3 IS545
       <div id="vis"></div>
+      <button id="addvis">Add Vis</button>
   </body>
   <script>
   var starAge =
@@ -20,6 +21,10 @@
         "y": {"aggregate": "count", "type": "quantitative"}
       }
     };
-    var vis1 = vegaEmbed('#vis', starAge);
+    document.addEventListener("DOMContentLoaded", () => {
+        document.getElementById("addvis").addEventListener("click", (event) => {
+            var embedded = vegaEmbed('#vis', starAge);
+        });
+    });
   </script>
 </html>
